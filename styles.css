@@ -23,14 +23,15 @@ a[data-tool-tip]:hover::after {
 
 .counters {
   margin: 3em;
-  counter-reset: counter-name;
+  counter-reset: counter-heading;
+  counter-reset: counter-list;
 }
 .section {
   position: relative;
 }
 .section::before {
-  counter-increment: counter-name;
-  content: counter(counter-name);
+  counter-increment: counter-heading;
+  content: counter(counter-heading);
   position: absolute;
   left: -1.5em;
   top: 0.1em;
@@ -42,4 +43,16 @@ a[data-tool-tip]:hover::after {
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid gray;
+  box-sizing: border-box;
+  color: gray;
+}
+
+.counters ol {
+  list-style: none;
+}
+
+.counters li::before {
+  counter-increment: counter-list;
+  content: "-- " counter(counter-list) " -- ";
 }
