@@ -1,0 +1,45 @@
+a[data-tool-tip] {
+  position: relative;
+}
+a[data-tool-tip]::after {
+  content: attr(data-tool-tip);
+  display: block;
+  position: absolute;
+  background-color: gray;
+  padding: 0.5em 1em;
+  color: white;
+  border-radius: 5px;
+  font-size: 0.8em;
+  bottom: 0;
+  left: 0;
+  white-space: nowrap;
+  transform: scale(0);
+  transition: transform ease-out 350ms, bottom ease-out 350ms;
+}
+a[data-tool-tip]:hover::after {
+  transform: scale(1);
+  bottom: 100%;
+}
+
+.counters {
+  margin: 3em;
+  counter-reset: counter-name;
+}
+.section {
+  position: relative;
+}
+.section::before {
+  counter-increment: counter-name;
+  content: counter(counter-name);
+  position: absolute;
+  left: -1.5em;
+  top: 0.1em;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  border-color: black;
+  background-color: lightgreen;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
